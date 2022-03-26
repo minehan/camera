@@ -1,78 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css" />
+  <!-- JavaScript -->
+  <script src="./jsQR.js" defer></script>
+  <script src="./main.js" defer></script>
 </head>
 
 <body>
-  <div class="reader">
-    <video id="js-video" class="reader-video" autoplay playsinline></video>
+  <h1>jsQR</h1>
+  <div id="wrapper">
+    <div id="msg">Unable to access video stream.</div>
+    <canvas id="canvas"></canvas>
   </div>
 </body>
-
-<style>
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: sans-serif;
-  }
-
-  .reader {
-    width: 100vw;
-    height: 100%;
-    position: relative;
-  }
-
-  .reader-video {
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-  }
-</style>
-
-<script>
-  const video = document.querySelector('#js-video')
-  navigator.mediaDevices
-    .getUserMedia({
-      audio: false,
-      video: {
-        facingMode: {
-          exact: 'environment'
-        }
-      }
-    })
-    .then(function (stream) {
-      video.srcObject = stream
-      video.onloadedmetadata = function (e) {
-        video.play()
-      }
-    })
-    .catch(function (err) {
-      alert('Error!!')
-    })
-
-
-
-
-
-
-
-
-</script>
-
-
 
 </html>
